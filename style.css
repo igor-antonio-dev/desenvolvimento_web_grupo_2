@@ -1,0 +1,13 @@
+.cor-texto{
+    color: pink;
+}
+
+.cor-fundo {
+    background-color: black;
+}
+
+#login {
+    float: right !important;
+    margin-right: 100px; /* Ajuste o valor conforme necessário */
+}
+

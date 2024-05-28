@@ -1,0 +1,10 @@
+Participantes:
+
+Felipe Carlos Grille De Sant'Anna 202109409761
+Igor Antonio de Oliveira Silva 202303093101
+Vitor Emanuel Xavier de Almeida - 202102042895
+Andre Luiz Avelino Sobral -  
+MATHEUS DE OLIVEIRA SILVA - 202102115957
+Fabiola Maria Braga - 202203960075
+
+Na tarefa 7 usamos as funções js onmouseover e onmouseout nas imagens, ou seja, ao passar o mouse em cima a imagem troca.
