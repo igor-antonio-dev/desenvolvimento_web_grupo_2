@@ -8,27 +8,29 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-    <div id="login">
-        <h3 class="text-center text-white pt-5">Login Notícias WEB</h3>
+    <div id="register">
+        <h3 class="text-center text-white pt-5">Registro Notícias WEB</h3>
         <div class="container">
-            <div id="login-row" class="row justify-content-center align-items-center">
-                <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12">
-                        <div id="error-message" class="alert alert-danger" role="alert" style="display: none;"></div>
-                        <form id="login-form" class="form" onsubmit="return validateLogin()">
-                            <h3 class="text-center text-info">Login</h3>
+            <div id="register-row" class="row justify-content-center align-items-center">
+                <div id="register-column" class="col-md-6">
+                    <div id="register-box" class="col-md-12">
+                        <div id="success-message" class="alert alert-success" role="alert" style="display: none;">Seu usuário foi registrado com sucesso!</div>
+                        <form id="register-form" class="form" onsubmit="return registerUser()">
+                            <h3 class="text-center text-info">Registro</h3>
                             <div class="form-group">
                                 <label for="username" class="text-info">Nome de Usuário:</label><br>
                                 <input type="text" name="username" id="username" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="text-info">E-mail:</label><br>
+                                <input type="email" name="email" id="email" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Senha:</label><br>
                                 <input type="password" name="password" id="password" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="remember-me" class="text-info"><span>Lembrar de mim</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
-                                <a href="register.html">Sou novo aqui!</a><br><br>
-                                <input type="submit" name="Entrar" class="btn btn-info btn-md" value="Entrar">
+                                <input type="submit" name="Registrar" class="btn btn-info btn-md" value="Registrar">
                             </div>
                         </form>
                     </div>
@@ -42,22 +44,24 @@
             'Igor': '123456',
             'Matheus': '123456',
             'Vitor': '123456',
-            'Raphael': '123456',
-            'Professor': '123456',
-            'Felipe': '123456'
+            'Raphael': '123456'
         };
 
-        function validateLogin() {
+        function registerUser() {
             const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('error-message');
+            const successMessage = document.getElementById('success-message');
 
-            if (users[username] && users[username] === password) {
-                window.location.href = 'index.html';
+            if (!users[username]) {
+                users[username] = password;
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000);
                 return false;
             } else {
-                errorMessage.textContent = 'Nome de usuário ou senha inválidos!';
-                errorMessage.style.display = 'block';
+                alert('Usuário já existe!');
                 return false;
             }
         }
